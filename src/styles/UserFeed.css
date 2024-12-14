@@ -1,0 +1,139 @@
+.feed-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.feed-header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.feed-user-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+.feed-title {
+    font-size: 10px;
+    color: gray;
+    margin: 0;
+    font-weight: 400;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.loader {
+    margin: 16px 0;
+    text-align: center;
+    color: gray;
+}
+
+.post {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.post-content {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.post-user {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.post-time {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 400;
+    color: gray;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding: 10px;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-image {
+    flex-shrink: 0;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    object-fit: cover;
+    position: relative;
+}
+
+.carousel-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.share-button {
+    padding: 7px 26px;
+    border-radius: 30px;
+    background-color: #00000012;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}

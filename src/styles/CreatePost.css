@@ -1,0 +1,169 @@
+.create-post {
+    padding: 20px;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.back-button {
+    cursor: pointer;
+}
+
+.create-header {
+    margin: 0;
+}
+
+.media-preview {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin-bottom: 16px;
+}
+
+.media-item {
+    position: relative;
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.remove-media-button {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    background: #00000052;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-textarea {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #D9D9D99C;
+    color: #0000006B;
+    border: none;
+}
+
+.media-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.create-post-footer {
+    margin-top: auto;
+}
+
+.create-button {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px;
+    border-radius: 36px;
+    background-color: #000;
+    color: #fff;
+}
+
+.create-button.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.media-carousel {
+    position: relative;
+    overflow-x: auto;
+    display: flex;
+    scroll-snap-type: x mandatory;
+}
+
+.media-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-items {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.carousel-media-item {
+    flex: 0 0 100%;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+    border-radius: 12px;
+    border: none;
+}
+
+.video-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-counter {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.view-post-error,
+.postcard-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+}

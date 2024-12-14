@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+}
+
+.google-btn {
+  height: 50px;
+  border-radius: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+}
+
+.google-btn:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.h-100vh {
+  height: 100vh !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.login-page {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #f0f0f0;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 33%; 
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 33%;
+}
+
+.bg-image {
+  width: 100%; 
+  height: auto; 
+  object-fit: cover;
+}
+
+.login-section {
+  position: relative;
+  background: white;
+  height: 40%;
+  border-radius: 63px 63px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); 
+}
+.app-header{
+  font-size: 28px;
+  font-weight: 600;
+}
+.app-sub-header{
+  font-size: 16px;
+  font-weight: 400;
+}
+.google-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.google-btn img {
+  margin-right: 10px;
+}
