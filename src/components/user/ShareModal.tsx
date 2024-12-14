@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
 import { FaFacebook, FaReddit, FaDiscord, FaFacebookMessenger, FaTelegram, FaCopy } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";

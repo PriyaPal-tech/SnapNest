@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "../../styles/UserProfile.css";
 import { db } from '../../global/config';
 import { doc, getDoc } from 'firebase/firestore';
@@ -18,7 +18,8 @@ const Profile = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
 
-  const fetchUserData = async (id: string) => {
+  const fetchUserData = useCallback(
+  async (id: string) => {
     try {
       const userDocRef = doc(db, 'users', id);
       const userDoc = await getDoc(userDocRef);
@@ -36,7 +37,7 @@ const Profile = () => {
     } finally {
       setLoading(false);
     }
-  };
+  },[]);
 
   const fetchUserPosts = async (postIds: string[]) => {
     try {
