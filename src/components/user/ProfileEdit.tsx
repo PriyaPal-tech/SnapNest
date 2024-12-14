@@ -64,22 +64,22 @@ const ProfileEdit = () => {
         window.history.back();
     };
     useEffect(() => {
-        setUserName(currentUser?.userName);
-        setUserBio(currentUser?.userBio);
-        setProfilePicture(currentUser?.profilePicture);
-        setCoverPhoto(currentUser?.coverPhoto);
+        setUserName(currentUser?.userName || '');
+        setUserBio(currentUser?.userBio || '');
+        setProfilePicture(currentUser?.profilePicture || '');
+        setCoverPhoto(currentUser?.coverPhoto|| '');
     }, [currentUser])
 
     useEffect(() => {
         const fetchUser = async () => {
-            const token = userToken || await getUserToken(); 
+            const token = userToken || getUserToken(); 
             if (token) {
                 await getCurrentUser(token); 
             }
         };
 
         fetchUser();
-    }, [userToken, getUserToken, getCurrentUser]);
+    }, [userToken]);
 
     return (
         <div className="profile-edit-container">
@@ -132,7 +132,7 @@ const ProfileEdit = () => {
                         type="text"
                         id="name"
                         className="input-field"
-                        value={userName || ""}
+                        value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         placeholder="Enter your name"
                     />
@@ -142,7 +142,7 @@ const ProfileEdit = () => {
                     <textarea
                         id="bio"
                         className="textarea-field"
-                        value={userBio || ""}
+                        value={userBio}
                         onChange={(e) => setUserBio(e.target.value)}
                         placeholder="Write something about yourself"
                         rows={2}

@@ -73,14 +73,14 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const token = userToken || await getUserToken(); 
+        const token = userToken || getUserToken(); 
         if (token) {
             await getCurrentUser(token); 
         }
     };
 
     fetchUser();
-}, [userToken, getUserToken, getCurrentUser]);
+}, [userToken]);
 
   const isOwnProfile = currentUser?.userId === userId;
   return (

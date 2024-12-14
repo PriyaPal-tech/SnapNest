@@ -29,7 +29,7 @@ const AppRoutes = () => {
         } else {
             getUserToken()
         }
-    }, [userToken, getCurrentUser, getUserToken]);
+    }, [userToken]);
     return (
         <Routes>
             <Route path="/" element={<App />}>

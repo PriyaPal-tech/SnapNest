@@ -101,6 +101,7 @@ const CreatePost = () => {
                 <IoMdArrowRoundBack size={24} onClick={handleBack} className='back-button me-2' />
                 <p className='create-header'>New post</p>
             </header>
+            
             {media.length > 0 && (
                 <div className='position-relative mb-4'>
                     <div className="media-carousel">
@@ -142,6 +143,7 @@ const CreatePost = () => {
 
                 </div>
             )}
+            
             {media.length > 0 && (
 
                 <div className="media-options">
@@ -161,6 +163,7 @@ const CreatePost = () => {
                 className="post-textarea"
                 rows={8}
             ></textarea>
+            <div className='media-info'>*file size limit upto 1 MB</div>
             {media.length === 0 && (
                 <div className="media-options">
                     {isMobile() ?

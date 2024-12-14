@@ -94,3 +94,9 @@
 .google-btn img {
   margin-right: 10px;
 }
+.media-info{
+  font-size: 14px;
+  font-weight: 500;
+  color: red;
+  margin-bottom: 5px;
+}
