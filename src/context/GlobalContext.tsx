@@ -48,8 +48,11 @@ const GlobalContextProvider: FC<React.PropsWithChildren<{}>> = ({ children }) =>
   const getUserToken = () => {
     if (!userToken) {
       const token = getToken();
-      if (token) setUserToken(token);
-      return token;
+      if (token) {
+        setUserToken(token);
+        return token;
+      }
+      else return '';
     }
     return userToken;
   }

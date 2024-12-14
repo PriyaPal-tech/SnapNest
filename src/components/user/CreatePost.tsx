@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { useGlobalContext } from '../../context/GlobalContext';
 import { addPost } from '../../db/addPost';
-import { uploadMedia } from '../../db/uploadMedia';
+import { uploadMedia } from '../../global/uploadMedia';
 import { postProps } from '../../global/types';
 
 const CreatePost = () => {
@@ -177,6 +177,12 @@ const CreatePost = () => {
                                 <img src="../media/video.png" className='me-1' />
                                 Video
                             </div>
+                            <div onClick={() => handleMediaSelect('camera')}
+                                className='d-flex align-items-center cursor-pointer'
+                            >
+                                <img src="../media/camera.png" className='me-1' />
+                                Camera
+                            </div>
                         </> :
                         <>
                             <div onClick={() => handleMediaSelect('photos')}
@@ -186,12 +192,6 @@ const CreatePost = () => {
                                 Choose the file
                             </div>
                         </>}
-                    <div onClick={() => handleMediaSelect('camera')}
-                        className='d-flex align-items-center cursor-pointer'
-                    >
-                        <img src="../media/camera.png" className='me-1' />
-                        Camera
-                    </div>
                 </div>
             )}
 

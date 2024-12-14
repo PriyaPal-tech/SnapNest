@@ -7,12 +7,15 @@ import CreatePostButton from "./CreatePostButton";
 import { collection, doc, DocumentData, getDoc, getDocs, limit, orderBy, query, QueryDocumentSnapshot, startAfter } from "firebase/firestore";
 import { db } from "../../global/config";
 import PostCard from "./PostCard";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const Feed = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const { currentUser, getCurrentUser, userToken, getUserToken } = useGlobalContext();
     const [user, setUser] = useState<userProps | undefined>();
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [mainLoader, setMainLoader] = useState<boolean>(true);
     const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData> | null>(null);
     const observerRef = useRef<HTMLDivElement | null>(null);
     
@@ -34,11 +37,12 @@ const Feed = () => {
             }
         } catch (error) {
             console.error("Error fetching user details: ", error);
+        } finally{
+            setMainLoader(false);
         }
     };
 
     const fetchInitialPosts = async () => {
-        setLoading(true);
         const postsRef = collection(db, "posts");
         const q = query(postsRef, orderBy("timestamp", "desc"), limit(20));
         try {
@@ -129,6 +133,20 @@ const Feed = () => {
     }, []);
 
     return (
+        <>{mainLoader ? (
+            <div className="profile-skeleton px-2 overflow-hidden">
+              <Skeleton height={50}/>
+              <div className="py-4">
+                <div>
+                  <Skeleton height={200} />
+                  <div className="py-2"></div>
+                  <Skeleton height={200} />
+                  <div className="py-2"></div>
+                  <Skeleton height={200} />
+                </div>
+              </div>
+            </div>
+          ) : (
         <>
             <div className="feed-container">
                 <div className="feed-header" onClick={() => { navigate(`/user/profile/${currentUser?.userId}`) }}>
@@ -153,6 +171,7 @@ const Feed = () => {
                 </div>
             </div>
             <CreatePostButton handleCreatePost={handleCreatePost} />
+        </>)}
         </>
     )
 }

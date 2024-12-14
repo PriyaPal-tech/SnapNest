@@ -1,5 +1,7 @@
-.profile-container {
-  max-width: max-content;
+.profile-container, .profile-skeleton {
+  max-width: 600px;
+  width: 100%;
+  height: 100vh;
   margin: 0 auto;
 }
 

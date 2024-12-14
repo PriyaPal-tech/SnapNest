@@ -14,7 +14,7 @@ const ShareModal = ({
     setShow: Dispatch<SetStateAction<boolean>>;
     shareUrl: string
 }) => {
-    
+
     const [shortUrl, setShortUrl] = useState<string>(shareUrl);
 
     const encodeURI = encodeURIComponent(shortUrl);
@@ -113,8 +113,8 @@ const ShareModal = ({
                 <div className="shortened-url">
                     <p className='page-link-header'>Page Link</p>
                     <div className="link-with-icon">
-                        <span style={{ paddingTop: '7px', paddingBottom: '7px' }}>{shortUrl}</span>
-                        <FaCopy size={15} color='#212121' onClick={handleCopyToClipboard} className='cursor-pointer' />
+                        <div style={{ paddingTop: '7px', paddingBottom: '7px', overflowWrap: 'anywhere' }}>{shortUrl}</div>
+                        <div><FaCopy size={15} color='#212121' onClick={handleCopyToClipboard} className='cursor-pointer' /></div>
                     </div>
                 </div>
             </Modal.Body>
