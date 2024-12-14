@@ -47,7 +47,7 @@ const Login = () => {
                             <img
                                 key={idx}
                                 src={`./media/image${col}-${idx + 1}.png`}
-                                alt={`Column ${col} Image ${idx + 1}`}
+                                alt={`Column ${col} ${idx + 1}`}
                                 className="bg-image"
                             />
                         ))}
@@ -57,7 +57,7 @@ const Login = () => {
 
             <div className="login-section">
                 <div className='app-header'>
-                    <img src='./media/app-logo.png' />
+                    <img src='./media/app-logo.png' alt='snapnest'/>
                     SnapNest
                 </div>
                 <div className='app-sub-header mb-4'>Moments That Matter, Shared Forever.</div>

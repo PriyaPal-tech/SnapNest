@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
-import { FaFacebook, FaReddit, FaDiscord, FaFacebookMessenger, FaTelegram, FaInstagram, FaCopy } from 'react-icons/fa';
+import { FaFacebook, FaReddit, FaDiscord, FaFacebookMessenger, FaTelegram, FaCopy } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import '../../styles/ShareModal.css'
 import { IoLogoWhatsapp } from 'react-icons/io';
@@ -15,7 +15,7 @@ const ShareModal = ({
     shareUrl: string
 }) => {
 
-    const [shortUrl, setShortUrl] = useState<string>(shareUrl);
+    const shortUrl = shareUrl;
 
     const encodeURI = encodeURIComponent(shortUrl);
     const shareLinks = {
@@ -104,7 +104,7 @@ const ShareModal = ({
                     <Col xs={3} className="social-icon">
                         <a href={shareLinks.instagram} target="_blank" rel="noopener noreferrer">
                             <div className='social-icon-box' style={{ backgroundColor: '#FF40C617' }}>
-                                <img src='../../media/instagram.svg' width={24} />
+                                <img src='../../media/instagram.svg' width={24} alt='instagram'/>
                             </div>
                         </a>
                         <p>Instagram</p>

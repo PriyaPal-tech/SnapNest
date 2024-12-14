@@ -86,7 +86,7 @@ const ProfileEdit = () => {
             <div className="cover-photo-container">
                 <img
                     src={coverPhoto || "https://via.placeholder.com/600x300"}
-                    alt="Cover Photo"
+                    alt="Cover"
                     className="cover-photo"
                 />
                 <header className="create-post-header profile-back">

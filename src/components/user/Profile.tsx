@@ -68,7 +68,7 @@ const Profile = () => {
       }
       setLoading(false);
     }
-  }, [userId, currentUser]);
+  }, [userId, currentUser, fetchUserData]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -104,7 +104,7 @@ const Profile = () => {
             <div className="cover-photo-container">
               <img
                 src={user?.coverPhoto || "https://via.placeholder.com/600x300"}
-                alt="Cover Photo"
+                alt="Cover"
                 className="cover-photo"
               />
               <IoMdArrowRoundBack size={24} onClick={handleBack} className='profile-back' />

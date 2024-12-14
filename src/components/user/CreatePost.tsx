@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/CreatePost.css'
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
@@ -148,7 +148,7 @@ const CreatePost = () => {
                     {<div onClick={() => handleMediaSelect('photos')}
                         className='d-flex align-items-center cursor-pointer'
                     >
-                        <img src="../media/gallery.png" className='me-1' />
+                        <img src="../media/gallery.png" alt='gallery' className='me-1' />
                         Add more Photos
                     </div>
                     }
@@ -168,19 +168,19 @@ const CreatePost = () => {
                             <div onClick={() => handleMediaSelect('photos')}
                                 className='d-flex align-items-center cursor-pointer'
                             >
-                                <img src="../media/gallery.png" className='me-1' />
+                                <img src="../media/gallery.png" className='me-1' alt='photos' />
                                 Photos
                             </div>
                             <div onClick={() => handleMediaSelect('video')}
                                 className='d-flex align-items-center cursor-pointer'
                             >
-                                <img src="../media/video.png" className='me-1' />
+                                <img src="../media/video.png" className='me-1'alt='videos' />
                                 Video
                             </div>
                             <div onClick={() => handleMediaSelect('camera')}
                                 className='d-flex align-items-center cursor-pointer'
                             >
-                                <img src="../media/camera.png" className='me-1' />
+                                <img src="../media/camera.png" className='me-1' alt='camera'/>
                                 Camera
                             </div>
                         </> :
@@ -188,7 +188,7 @@ const CreatePost = () => {
                             <div onClick={() => handleMediaSelect('photos')}
                                 className='d-flex align-items-center cursor-pointer'
                             >
-                                <img src="../media/folder.png" className='me-1' />
+                                <img src="../media/folder.png" className='me-1' alt='choose this file'/>
                                 Choose the file
                             </div>
                         </>}

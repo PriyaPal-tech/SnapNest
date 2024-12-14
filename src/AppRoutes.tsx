@@ -1,5 +1,5 @@
-import React, { JSX, ReactNode, useState, useEffect } from 'react'
-import { Routes, Route, BrowserRouter, Navigate, useNavigate } from 'react-router-dom';
+import React, { JSX, ReactNode, useEffect } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom';
 import App from './App';
 import Login from './components/auth/Login';
 import Feed from './components/user/Feed';
@@ -29,7 +29,7 @@ const AppRoutes = () => {
         } else {
             getUserToken()
         }
-    }, [userToken]);
+    }, [userToken, getCurrentUser, getUserToken]);
     return (
         <Routes>
             <Route path="/" element={<App />}>

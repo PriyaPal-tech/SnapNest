@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, ReactNode } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../../styles/UserFeed.css";
 import { useNavigate } from "react-router-dom";
 import { Post, userProps } from "../../global/types";
@@ -130,7 +130,7 @@ const Feed = () => {
 
     useEffect(() => {
         fetchInitialPosts();
-    }, []);
+    }, [fetchInitialPosts]);
 
     return (
         <>{mainLoader ? (
