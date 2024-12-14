@@ -24,7 +24,7 @@ const PostCard = ({
         window.history.back();
     };
     const generatePostUrl = () => {
-        return `${window.location.origin}/user/post/${post.postId}`; 
+        return `${window.location.origin}/user/post/${post.postId}`;
     };
     return (
         <div className={`${isClickable ? '' : 'postcard-container'}`}>
@@ -45,7 +45,7 @@ const PostCard = ({
                 <div onClick={handlePostClick} className={`${isClickable ? 'cursor-pointer' : ''}`}>
                     <p className="post-content">{post.caption}</p>
                     <div className="post-carousel">
-                        <ImageCarousel images={post.postImages} />
+                        <ImageCarousel media={post.postImages} />
                     </div>
                 </div>
                 <div className="post-actions">
@@ -57,25 +57,34 @@ const PostCard = ({
                     </div>
                 </div>
             </div>
-            <ShareModal show={modalShow} setShow={setModalShow} shareUrl={generatePostUrl()}/>
+            <ShareModal show={modalShow} setShow={setModalShow} shareUrl={generatePostUrl()} />
         </div>
     )
 }
 
-const ImageCarousel = ({ images }: { images: string[] }) => {
+const ImageCarousel = ({ media }: { media: string[] }) => {
     return (
         <div className="carousel-container">
-            {images.map((image, index) => (
-                <div
-                    key={index}
-                    className="carousel-image"
-                >
-                    <img
-                        src={image}
-                        alt={`Slide ${index + 1}`}
-                    />
-                </div>
-            ))}
+            {media.map((item, index) => {
+                const isVideo = item.includes('video');
+                return (
+                    <div key={index} className="carousel-image">
+                        {isVideo ? (
+                            <video
+                                className='video-preview'
+                                src={item}
+                                autoPlay
+                                controls
+                            />
+                        ) : (
+                            <img
+                                src={item}
+                                alt={`Slide ${index + 1}`}
+                            />
+                        )}
+                    </div>
+                );
+            })}
         </div>
     );
 };

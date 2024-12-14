@@ -23,7 +23,6 @@ export const ProtectedRoute = ({ token, children }: ProtectedRouteProps): JSX.El
 const AppRoutes = () => {
     const { getCurrentUser, userToken, getUserToken } = useGlobalContext();
     useEffect(() => {
-        console.log("userToken",userToken);
         if (userToken) {
             getCurrentUser(userToken);
         } else {

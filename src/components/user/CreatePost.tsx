@@ -121,6 +121,7 @@ const CreatePost = () => {
                                             <video
                                                 className="video-preview"
                                                 src={mediaUrls[index]}
+                                                autoPlay
                                                 controls
                                             ></video>
                                         )}

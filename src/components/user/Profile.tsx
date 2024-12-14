@@ -19,25 +19,25 @@ const Profile = () => {
   const { userId } = useParams();
 
   const fetchUserData = useCallback(
-  async (id: string) => {
-    try {
-      const userDocRef = doc(db, 'users', id);
-      const userDoc = await getDoc(userDocRef);
-      if (userDoc.exists()) {
-        const userData = userDoc.data() as userProps;
-        setUser(userData);
-        if (userData.postIds) {
-          await fetchUserPosts(userData.postIds);
+    async (id: string) => {
+      try {
+        const userDocRef = doc(db, 'users', id);
+        const userDoc = await getDoc(userDocRef);
+        if (userDoc.exists()) {
+          const userData = userDoc.data() as userProps;
+          setUser(userData);
+          if (userData.postIds) {
+            await fetchUserPosts(userData.postIds);
+          }
+        } else {
+          console.error("User not found!");
         }
-      } else {
-        console.error("User not found!");
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      setLoading(false);
-    }
-  },[]);
+    }, []);
 
   const fetchUserPosts = async (postIds: string[]) => {
     try {
@@ -73,14 +73,14 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const token = userToken || getUserToken(); 
-        if (token) {
-            await getCurrentUser(token); 
-        }
+      const token = userToken || getUserToken();
+      if (token) {
+        await getCurrentUser(token);
+      }
     };
 
     fetchUser();
-}, [userToken]);
+  }, [userToken]);
 
   const isOwnProfile = currentUser?.userId === userId;
   return (
@@ -127,28 +127,37 @@ const Profile = () => {
             <div className="my-posts">
               <h3 className="posts-heading">{isOwnProfile && 'My'} Posts</h3>
               <div className="posts-grid">
-                {posts.map((post) => (
-                  <div key={post.postId} className="post-card cursor-pointer" onClick={() => navigate(`/user/post/${post.postId}`)}>
-                    <div className="post-image-container">
-                      <div className="image-scroll-container">
-                        <>
-                          <img
-                            src={post.postImages[0]}
-                            alt={`Post Media ${1}`}
-                            className="post-image"
-                          />
-                        </>
-                      </div>
-                      <div className="post-overlay">
-                        <div className="post-caption">{post.caption}</div>
-                        <div className="post-likes">
-                          <HiHeart size={16} className='me-1' />
-                          {post.likes}
+                {posts
+                  .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+                  .map((post, index) => (
+                    <div key={post.postId} className="post-card cursor-pointer" onClick={() => navigate(`/user/post/${post.postId}`)}>
+                      <div className="post-image-container">
+                        <div className="image-scroll-container">
+                          <>
+                            {post.postImages[0].includes('video') ? (
+                              <video
+                                src={post.postImages[0]}
+                                className="post-image"
+                                muted
+                              />
+                            ) : (
+                              <img
+                                src={post.postImages[0]}
+                                alt={`Post Media ${index}`}
+                                className="post-image"
+                              />)}
+                          </>
+                        </div>
+                        <div className="post-overlay">
+                          <div className="post-caption">{post.caption}</div>
+                          <div className="post-likes">
+                            <HiHeart size={16} className='me-1' />
+                            {post.likes}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           </div>

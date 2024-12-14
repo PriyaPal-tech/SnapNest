@@ -11,6 +11,7 @@ export const addPost = async (post: postProps) => {
             postIds: arrayUnion(post.postId),
         });
     } catch (error) {
-        console.error('first error', error)
+        alert("Error creating post!");
+        console.error('Error', error)
     }
 }
