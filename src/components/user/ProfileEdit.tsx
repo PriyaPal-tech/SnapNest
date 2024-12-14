@@ -30,7 +30,7 @@ const ProfileEdit = () => {
         try {
             await updateUserDetails(currentUser.userId, updatedFields);
             console.log('Profile updated successfully!');
-            navigate('/user/profile');
+            navigate(`/user/profile/${currentUser.userId}`);
         } catch (error) {
             console.error('Error updating profile:', error);
         } finally {
@@ -149,7 +149,9 @@ const ProfileEdit = () => {
                     />
                 </div>
             </div>
+
             <footer className="create-post-footer mb-3 mx-3">
+            <div className='media-info'>*file size limit upto 1 MB</div>
                 <button onClick={handleSave} className="create-button" disabled={loading}>
                     {loading ? 'SAVING...' : 'SAVE'}
                 </button>

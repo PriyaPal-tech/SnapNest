@@ -3,19 +3,14 @@ import { doc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { postProps } from '../global/types';
 
 export const addPost = async (post: postProps) => {
-    const postRef = doc(db, 'posts', post.postId); 
+    const postRef = doc(db, 'posts', post.postId);
     const userRef = doc(db, 'users', post.userId);
-
-    await setDoc(postRef, {
-        postId: post.postId,
-        caption: post.caption,
-        postImages: post.postImages,
-        timestamp: post.timestamp,
-        likes: post.likes,
-        userId: post.userId,
-    });
-
-    await updateDoc(userRef, {
-        postIds: arrayUnion(post.postId),
-    });
+    try {
+        await setDoc(postRef, post);
+        await updateDoc(userRef, {
+            postIds: arrayUnion(post.postId),
+        });
+    } catch (error) {
+        console.error('first error', error)
+    }
 }
