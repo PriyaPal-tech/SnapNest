@@ -1,5 +1,5 @@
 # 📸 SnapNest 
-[Live Demo](https://snapnest-3f7be.web.app/)
+<a href="(https://snapnest-3f7be.web.app/)" target="_blank" rel="noopener noreferrer">Live Demo</a>
 
 SnapNest is a lightweight social media application built using **React**, **TypeScript**, **Firebase**, and **Firestore**. It allows users to share moments, interact with posts, and authenticate securely via Google.
 
